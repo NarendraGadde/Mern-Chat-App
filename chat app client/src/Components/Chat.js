@@ -137,7 +137,11 @@ function Chat({
                               >
                                 <div
                                   className="font-italic text-light rounded p-2  bg-dark"
-                                  style={{ width: "fit-content" }}
+                                  style={{
+                                    width: "fit-content",
+                                    overflowWrap: "break-word",
+                                    maxWidth: "50%",
+                                  }}
                                 >
                                   {message.message}
                                 </div>
