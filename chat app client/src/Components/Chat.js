@@ -1,4 +1,4 @@
-//Adding Coomment
+//Adding Comment
 
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
@@ -29,7 +29,7 @@ function Chat({
   const [afriend, setFriend] = useState("");
   const inputref = useRef(null);
   const myRef = useRef(null);
-  console.log(afriend);
+  // console.log(afriend);
 
   const executeScroll = () => myRef.current.scrollIntoView();
   var socket = null;
@@ -46,8 +46,8 @@ function Chat({
   }, []);
 
   const newMessagefromFriend = (message) => {
-    console.log(message.fullDocument);
-    console.log(afriend);
+    // console.log(message.fullDocument.senderid);
+    // console.log(afriend);
     if (message.fullDocument.senderid === afriend) {
       newMessage(message.fullDocument);
     }

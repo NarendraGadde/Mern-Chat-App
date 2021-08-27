@@ -1,5 +1,3 @@
-const c = require("config");
-const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 const { auth } = require("../../middleware/Authenticate");

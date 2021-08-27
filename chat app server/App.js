@@ -1,11 +1,11 @@
-var express = require("express");
+const express = require("express");
 // var connectDB = require("./config/DbConnection");
-var app = express();
+const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-var mongoose = require("mongoose");
-var config = require("config");
-var mongoDBUrl = config.get("mongoURI");
+const mongoose = require("mongoose");
+const config = require("config");
+const mongoDBUrl = config.get("mongoURI");
 
 io.of("/api/chat/socket").on("connection", (socket) => {
   console.log("socket connection established");

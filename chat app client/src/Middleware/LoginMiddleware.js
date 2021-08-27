@@ -3,13 +3,24 @@ import axios from "axios";
 const LoginRequest = async (dispatch, formData) => {
   try {
     const response = await axios.post("api/login", formData);
-    // if (response.status !== 200) throw "Exception";
-    localStorage.setItem("refreshtoken", response.data.refreshtoken);
-    dispatch({
-      type: "LOGIN_SUCCESS",
-      token: response.data.token,
-      user: {},
-    });
+    if (response.status !== 200) {
+      dispatch({
+        type: "LOGIN_FAIL",
+        errors: ["Error from Server"],
+      });
+      setTimeout(() => {
+        dispatch({
+          type: "REMOVE_ALERTS",
+        });
+      }, 3000);
+    } else {
+      localStorage.setItem("refreshtoken", response.data.refreshtoken);
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        token: response.data.token,
+        user: {},
+      });
+    }
   } catch (error) {
     dispatch({
       type: "LOGIN_FAIL",
