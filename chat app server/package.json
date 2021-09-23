@@ -7,7 +7,9 @@
     "start": "node app",
     "server": "nodemon app --ignore client",
     "client": "npm start",
-    "dev": "concurrently \"npm run server\" \" cd.. && cd chat app client && npm start \""
+    "dev": "concurrently \"npm run server\" \" cd.. && cd chat app client && npm start \"",
+    "predeploy": "npm run dev",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
